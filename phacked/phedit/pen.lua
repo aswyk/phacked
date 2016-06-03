@@ -77,13 +77,11 @@ function pen:draw()
         lg.setColor(self.m_r, self.m_g, self.m_b, self.m_a)
         lg.line(self.m_points)
 
+        lg.setColor(200, 200, 200, 200)
+
+        lg.line(self.m_points[len-1], self.m_points[len], mx, my)
+
     end
-
-
-    --lg.setColor(self.m_g, self.m_b, self.m_r, self.m_a)
-    lg.setColor(200, 200, 200, 200)
-
-    --lg.line(self.m_points[len-1], self.m_points[len], mx, my)
 
     lg.pop()
 

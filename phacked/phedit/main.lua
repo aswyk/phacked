@@ -27,6 +27,9 @@ local gui = require('Gspot')
 
 function love.load()
     font = love.graphics.newFont("assets/fonts/Hack-Regular.ttf", 12)
+    cursorImageData = love.image.newImageData("assets/cursors/evo32.png")
+    cursor = love.mouse.newCursor( cursorImageData, 0, 0 )
+    love.mouse.setCursor( cursor )
     love.graphics.setFont(font)
 
     UI = phui.create(gui)
