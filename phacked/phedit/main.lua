@@ -27,7 +27,8 @@ local gui = require('Gspot')
 
 function love.load()
     font = love.graphics.newFont("assets/fonts/Hack-Regular.ttf", 12)
-    cursorImageData = love.image.newImageData("assets/cursors/evo32.png")
+    --cursorImageData = love.image.newImageData("assets/cursors/evo32.png")
+    cursorImageData = love.image.newImageData("assets/cursors/blueRod.png")
     cursor = love.mouse.newCursor( cursorImageData, 0, 0 )
     love.mouse.setCursor( cursor )
     love.graphics.setFont(font)
@@ -48,6 +49,8 @@ function love.keypressed(key, code, isrepeat)
 
     if key == 'a' then
         p:addPointAuto()
+    elseif key == 'd' then
+        p:deleteLastPoint()
     end
 
     --[[if gui.focus then

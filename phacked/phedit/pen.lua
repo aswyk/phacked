@@ -29,6 +29,11 @@ function pen:setPosition(x, y)
     self.m_yPosition = y
 end
 
+function pen:deleteLastPoint()
+    local len = table.getn(self.m_points)
+    table.remove(self.m_points, len)
+    table.remove(self.m_points, len - 1)
+end
 
 function pen:addPointAuto()
 
@@ -71,13 +76,15 @@ function pen:draw()
 
 
         for i = 1, len-1, 2 do
-            love.graphics.circle("fill", self.m_points[i], self.m_points[i+1], 3, 12) -- Draw white circle with 100 segments.
+            love.graphics.circle("fill", self.m_points[i], self.m_points[i+1], 5, 12) -- Draw white circle with 100 segments.
         end
 
         lg.setColor(self.m_r, self.m_g, self.m_b, self.m_a)
         lg.line(self.m_points)
 
-        lg.setColor(200, 200, 200, 200)
+        --lg.setColor(200, 200, 200, 200)
+        --lg.setColor(self.m_g, self.m_b, self.m_r, self.m_a)
+        lg.setColor(self.m_g, self.m_b, self.m_r, 255)
 
         lg.line(self.m_points[len-1], self.m_points[len], mx, my)
 
